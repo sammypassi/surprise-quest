@@ -303,6 +303,7 @@ function physics(dt){
   if(player.x+player.w>=doorX-28 && score===hearts.length){
     finished=true;started=false;keys.left=keys.right=keys.jump=false;
     document.getElementById('final').classList.remove('hidden');
+    // Gäste wählen selbst, wann sie die Save-the-Date-Seite öffnen.
   } else if(player.x>doorX-115 && score<hearts.length){
     hudStatus.textContent='Es fehlen noch Herzen!';
   }
@@ -389,7 +390,7 @@ introStart.addEventListener('click',startGame);
 const infoPage=document.getElementById('info-page');
 document.getElementById('again').onclick=()=>{infoPage.classList.add('hidden');reset();};
 document.getElementById('info-open').onclick=()=>{
-  document.getElementById('final').classList.add('hidden');infoPage.classList.remove('hidden');infoPage.scrollTop=0;refreshCountdown();
+  window.location.assign('save-the-date.html');
 };
 document.getElementById('info-back').onclick=()=>{infoPage.classList.add('hidden');document.getElementById('final').classList.remove('hidden');};
 function refreshCountdown(){
